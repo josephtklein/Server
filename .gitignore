@@ -1,0 +1,11 @@
+# Packages #
+############
+*.zip
+*.tar
+# VIM #
+#######
+*.swap
+# json #
+
+node-modules
+package-lock.json
