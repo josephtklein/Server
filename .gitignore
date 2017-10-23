@@ -9,3 +9,4 @@
 
 node-modules
 package-lock.json
+.vscode
