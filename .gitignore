@@ -10,3 +10,4 @@
 node-modules
 package-lock.json
 .vscode
+npm-debug.log

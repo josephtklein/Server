@@ -1,9 +1,12 @@
-module.exports =function(grunt) {
+module.exports = function(grunt) {
+
+	grunt.loadNpmTasks('grunt-contrib-nodemon');
+	grunt.loadNpmTasks('grunt-env');
 
 	// Projsct configuration
 	//
 	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json);
+		pkg: grunt.file.readJSON('package.json'),
 
 		env: {
 			dev: {
@@ -12,21 +15,19 @@ module.exports =function(grunt) {
 			production: {
 				NODE_ENV: 'production'
 			}
-		}
+		},
 
 		nodemon: {
-			dev: { script: 'index.js')
+			dev: { script: 'index.js'}
 		}
 	});
-
-	grunt.loadNpmTasks('grunt-env');
 
 	grunt.registerTask('default', [
 		'env:dev',
 		'nodemon'
 	]);
 
-	grunt registerTask('production', [
+	grunt.registerTask('production', [
 		'env:production',
 		'nodemon'
 	]);

@@ -1,8 +1,8 @@
 var path = require('path'),
 	rootPath = path.normalize(__dirname +'/..'),
-	env = process.env.NODE_ENV || 'development');
+	env = process.env.NODE_ENV || 'development';
 
-var config: {
+var config = {
 	development: {
 		root: rootPath,
 		app: { name: 'ToDo' },
@@ -11,14 +11,14 @@ var config: {
 	},
 	production: {
 		root: rootPath,
-		app { name: 'ToDo' },
-		port: 80,
-	}
+		app: { name: 'ToDo' },
+		port: 8080,
+	},
 	test: {
 		root: rootPath,
-		app { name: 'ToDo' },
+		app: { name: 'ToDo' },
 		port: 4000,
-	}
+	},
 };
 
 module.export = config[env];

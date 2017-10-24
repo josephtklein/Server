@@ -1,7 +1,8 @@
 // put in requrements
 var express = require('express');
-var mongoos = require('mongoose');
+var mongoose = require('mongoose');
 var bluebird = require('bluebird');
+var glob = require('glob');
 
 // Load the Models and Controllers
 //
@@ -19,7 +20,7 @@ module.exports = function(app, config) {
 
 	logger.log("Loading Mongoose functionality");
 	mongoose.Promise = require("bluebird");
-	mongoose.connect(config.db, (useMongoClient: true));
+	mongoose.connect(config.db, {useMongoClient: true});
 	var db = mongoose.connection;
 	db.on('error', function() {
 		throw new Error('unable to connect to database at ' + config.db);
@@ -31,6 +32,11 @@ module.exports = function(app, config) {
 		app.use(function(req, res, next) {
 			console.log('Request from ' +req.connect.remote);
 			next();
+		});
+
+		mongoose.set('debug',true);
+		mongoose.connect.once('open', function callback() {
+			loggetr.log("Mongoose connected to the database");
 		});
 	}
 
