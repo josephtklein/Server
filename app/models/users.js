@@ -7,6 +7,6 @@ var userSchema = new Schema ({
 	email:	{type: String, require: true, unique: true, match: /\S+@\S+\.\S+/},
 	password: {type: String},
 	dateRegistered: { type: Date, require: true, default: Date.now }
-}):
+});
 
 module.exports = Mongoose.model('UserModel', userSchema);
